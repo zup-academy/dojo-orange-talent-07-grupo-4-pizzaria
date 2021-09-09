@@ -35,6 +35,19 @@ class NovoIngredienteRequest {
 
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
     public Ingrediente paraIngrediente() {
 
         return new Ingrediente(nome, quantidade, preco);

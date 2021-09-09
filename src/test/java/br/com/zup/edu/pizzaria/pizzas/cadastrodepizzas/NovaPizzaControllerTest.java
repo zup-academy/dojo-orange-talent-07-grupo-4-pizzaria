@@ -51,4 +51,19 @@ public class NovaPizzaControllerTest {
                 .andExpect(redirectedUrlPattern("/api/pizzas/{id}"));
     }
 
+    @Test
+    void naoDeveCadastrarNovaPizzaSemIngredientes() throws Exception {
+
+        List<Long> ingredientes = new ArrayList<>();
+
+        NovaPizzaRequest body = new NovaPizzaRequest("margherita", ingredientes);
+
+        MockHttpServletRequestBuilder request = post("/api/pizzas")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(body));
+
+        mvc.perform(request)
+                .andExpect(status().isBadRequest());
+    }
+
 }

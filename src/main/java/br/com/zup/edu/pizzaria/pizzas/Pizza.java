@@ -4,6 +4,7 @@ import br.com.zup.edu.pizzaria.ingredientes.Ingrediente;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class Pizza {
     @Column(unique = true, nullable = false)
     private String sabor;
 
-    private BigDecimal preco;
+    private BigDecimal preco = new BigDecimal(BigInteger.ZERO);
 
     @ManyToMany
     private List<Ingrediente> ingredientes = new ArrayList<>();

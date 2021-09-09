@@ -37,4 +37,12 @@ public class NovaPizzaRequest {
 
         return new Pizza(sabor, ingredientes);
     }
+
+    public String getSabor() {
+        return sabor;
+    }
+
+    public List<Long> getIngredientes() {
+        return ingredientes;
+    }
 }
